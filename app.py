@@ -20,12 +20,12 @@ def main():
 
             new_move = dict()
             move_desc = input("Description: ")
-            move_amt = input("Ammount: ")
+            move_amt = input("Amount: ")
             move_cat = input("Category: ")
             move_date = input("Date: ")
 
             new_move["desc"] = move_desc
-            new_move["ammount"] = float(move_amt)
+            new_move["amount"] = float(move_amt)
             new_move["category"] = move_cat
             new_move["date"] = move_date
 
@@ -39,7 +39,7 @@ def main():
         elif option == 3:
             counter = 0.0
             for item in moves_lst:
-                counter += item["ammount"]
+                counter += item["amount"]
             print("Total: ", counter)
 
         elif option == 4:
@@ -47,10 +47,10 @@ def main():
             categories = dict()
             for item in moves_lst:
                 if item["category"] not in categories:
-                    categories[item["category"]] = item["ammount"]
+                    categories[item["category"]] = item["amount"]
 
                 else:
-                    categories[item["category"]] += item["ammount"]
+                    categories[item["category"]] += item["amount"]
 
             print(categories)
         
