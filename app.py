@@ -107,7 +107,7 @@ def check_desc():
 
     while check == True:
         desc = input("Description: ")
-        empty_check = desc.isspace()
+        empty_check = desc.strip().isspace()
         if not(desc) or empty_check:
             print("You can't add a move without a description, please try again")
         else:
@@ -123,7 +123,7 @@ def check_amt():
         amt = input("Amount: ")
         amt = float(amt)
 
-        if amt < 0:
+        if amt <= 0:
             print("You can't add an ammount lower than zero, please try again")
         else:
             check = False
@@ -138,7 +138,7 @@ def check_cat():
 
     while check == True:
         cat = input("Category: ")
-        empty_check = cat.isspace()
+        empty_check = cat.strip().isspace()
         if not(cat) or empty_check:
             print("You can't add a move without a category, please try again")
         else:
@@ -146,5 +146,6 @@ def check_cat():
 
     return cat
 
-main()
+if __name__ == "__main__":
+    main()
 
