@@ -31,6 +31,13 @@ def main():
         elif option == 5:
             bool_menu = False
 
+        elif option > 5 and option <= 0:
+            print("Please select a valid option")
+
+        else:
+            print("Please select a valid option")
+
+
 
 
     return None
@@ -49,9 +56,9 @@ def func_menu():
 def add_move(lst):
 
     new_move = dict()
-    move_desc = input("Description: ")
-    move_amt = input("Amount: ")
-    move_cat = input("Category: ")
+    move_desc = check_desc()
+    move_amt = check_amt()
+    move_cat = check_cat()
     move_date = input("Date: ")
 
     new_move["desc"] = move_desc
@@ -94,6 +101,50 @@ def categorize_moves(lst):
 
     return categories
 
+def check_desc():
+    
+    check = True
+
+    while check == True:
+        desc = input("Description: ")
+        empty_check = desc.isspace()
+        if not(desc) or empty_check:
+            print("You can't add a move without a description, please try again")
+        else:
+            check = False
+
+    return desc
+
+def check_amt():
+
+    check = True
+
+    while check == True:
+        amt = input("Amount: ")
+        amt = float(amt)
+
+        if amt < 0:
+            print("You can't add an ammount lower than zero, please try again")
+        else:
+            check = False
+
+    return amt
+
+        
+
+def check_cat():
+
+    check = True
+
+    while check == True:
+        cat = input("Category: ")
+        empty_check = cat.isspace()
+        if not(cat) or empty_check:
+            print("You can't add a move without a category, please try again")
+        else:
+            check = False
+
+    return cat
 
 main()
 
