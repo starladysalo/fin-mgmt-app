@@ -9,7 +9,8 @@ def main():
             1. Add a movement
             2. See all movements
             3. See total spending
-            4. Exit
+            4. Show spending by category
+            5. Exit
             ''')
         
         usr_option = input()
@@ -40,8 +41,20 @@ def main():
             for item in moves_lst:
                 counter += item["ammount"]
             print("Total: ", counter)
-        
+
         elif option == 4:
+
+            categories = dict()
+            for item in moves_lst:
+                if item["category"] not in categories:
+                    categories[item["category"]] = item["ammount"]
+
+                else:
+                    categories[item["category"]] += item["ammount"]
+
+            print(categories)
+        
+        elif option == 5:
             bool_menu = False
 
 
